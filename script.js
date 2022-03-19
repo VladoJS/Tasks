@@ -61,3 +61,56 @@ name
     .join('');
 
 console.log(toInitialsTwo('Bob Dealan'));
+
+
+// the function of summing all the digits of a number
+// 1:
+function sumDigits(number) {
+    let moduleNumber = Math.abs(number);
+    let str = moduleNumber.toString();
+    let arr = str.split('');
+    let res = arr.reduce(function(sum, cur) {
+        return Number(sum) + Number(cur);
+    }, 0);
+    return res;
+}
+
+console.log(sumDigits(88));
+
+// 2:
+const sumDigitsAll = number =>
+    Math.abs(number)
+        .toString()
+        .split('')
+        .reduce((sum, cur) => +sum + +cur, 0);
+
+console.log(sumDigitsAll(1504));
+
+// 3:
+function sumDigits(num) {
+    return String(num)
+        .split('')
+        .map(el => Number(el))
+        .filter(Boolean)
+        .reduce((sum, cur) => sum + cur, 0);
+}
+
+console.log(sumDigits(99));
+
+
+
+// Search for min and max values in an array
+// 1:
+function minMax(arr) {
+    let res = [];
+    let minValue = Math.min.apply(null, arr);
+    let maxValue = Math.max.apply(null, arr);
+    return res.push(minValue, maxValue);
+}
+console.log(minMax([10, 29, 300, 1000]));
+
+// 2
+const minMaxValues = (arr) =>
+    [Math.min(...arr), Math.max(...arr)];
+
+console.log(minMaxValues([2, 10, 100, 200]));
